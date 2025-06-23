@@ -7,7 +7,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# DB connection
+print("Connecting with:")
+print("  DB_NAME =", os.getenv("DB_NAME"))
+print("  DB_USER =", os.getenv("DB_USER"))
+print("  DB_PASS =", "*" * len(os.getenv("DB_PASS", "")))
+print("  DB_HOST =", os.getenv("DB_HOST"))
+
 conn = psycopg2.connect(
     dbname=os.getenv("DB_NAME"),
     user=os.getenv("DB_USER"),
@@ -15,6 +20,7 @@ conn = psycopg2.connect(
     host=os.getenv("DB_HOST"),
     port=os.getenv("DB_PORT", 5432)
 )
+
 cursor = conn.cursor()
 
 # Define symbols
