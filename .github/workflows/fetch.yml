@@ -1,0 +1,33 @@
+name: Fetch Margin Data
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests psycopg2-binary python-dotenv
+
+      - name: Run script
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          FYERS_TOKEN_ID: ${{ secrets.FYERS_TOKEN_ID }}
+          FYERS_AUTH: ${{ secrets.FYERS_AUTH }}
+        run: python main.py

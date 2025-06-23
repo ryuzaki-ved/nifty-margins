@@ -26,7 +26,7 @@ token_id = os.getenv("FYERS_TOKEN_ID")
 auth_token = os.getenv("FYERS_AUTH")
 
 # API headers
-url = "https://api-t1.fyers.in/trade/v3/margin?token_id={token_id}"
+url = f"https://api-t1.fyers.in/trade/v3/margin?token_id={token_id}"
 headers = {
     "accept": "application/json",
     "authorization": auth_token,
