@@ -24,7 +24,7 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 # Define symbols
-strikes = range(24700, 25000 + 1, 50)
+strikes = range(24900, 25500 + 1, 50)
 symbols = [f"NSE:NIFTY25JUN{strike}CE" for strike in strikes] + \
           [f"NSE:NIFTY25JUN{strike}PE" for strike in strikes]
 
