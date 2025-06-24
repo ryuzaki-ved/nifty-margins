@@ -2,7 +2,7 @@ name: Fetch Margin Data
 
 on:
   schedule:
-    - cron: '* * * * *'  # Every 5 minutes
+    - cron: '*/1 * * * *'  # Every 5 minutes
   workflow_dispatch:
 
 jobs:
