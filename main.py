@@ -24,6 +24,10 @@ def fetch_and_store_margins():
     strikes = range(24700, 25000 + 1, 50)
     symbols = [f"NSE:NIFTY25JUN{strike}CE" for strike in strikes] + \
               [f"NSE:NIFTY25JUN{strike}PE" for strike in strikes]
+# Define symbols
+strikes = range(24900, 25500 + 1, 50)
+symbols = [f"NSE:NIFTY25JUN{strike}CE" for strike in strikes] + \
+          [f"NSE:NIFTY25JUN{strike}PE" for strike in strikes]
 
     token_id = os.getenv("FYERS_TOKEN_ID")
     auth_token = os.getenv("FYERS_AUTH")
